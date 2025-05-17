@@ -2,12 +2,11 @@
 const express = require('express');
 const app = express();
 
-app.get('*', (req, res) => {
+app.get('/', (req, res) => {
   const code = req.query?.code;
 
   // Print incoming URL
-  const fullUrl = `${req.protocol}://${req.get('host')}${req.originalUrl}`;
-  console.log("Full URL:", fullUrl);
+  console.log(`Incoming Request: ${req.method} ${req.protocol}://${req.get('host')}${req.originalUrl}`);
 
   // Debug: query and body
   console.log("req.query", req.query);
